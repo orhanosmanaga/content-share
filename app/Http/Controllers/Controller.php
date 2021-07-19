@@ -15,19 +15,19 @@ class Controller extends BaseController
    
 
 
-    $link = 'YOUR_LINK_TO_SHARE';
+    $link = 'd';
 $access_token = 'AQXsHKINVvWmFm_RYe37gsxHhATdKNZ9PTItoN5-t5JlFBgPmVtNnAxO3TqrnVTl-9Ro9cojcXJDf_S7XDvsR5svWaGUBja_ZWxzeWXKLG1Vx_CwLihq8PA4d9eCkeEx0qUGEhtrYgl9CgsyaVrmZKUHRltsyZKnb-_aH4k83fUNsNqAOMwC1QWIOSDBTfeie31abmmHmfic_PCzbvMS9AasfCES1rTn69VIpiYQNvu9OvaqeB_Moe6qTrkPtsugI2wPGsrRRxZV75KHyuRWbs0rhd3jkspDNAP0jCXiRZs0zeJC1dO_Tf8geoGWu2dZGmNdv5p7LI29VMxgZMh_iVVc5OdTHg';
 $linkedin_id = 'Y0w1osd7bh';
 $body = new \stdClass();
 $body->content = new \stdClass();
-$body->content->contentEntities[0] = new \stdClass();
+//$body->content->contentEntities[0] = new \stdClass();
 $body->text = new \stdClass();
-$body->content->contentEntities[0]->thumbnails[0] = new \stdClass();
-$body->content->contentEntities[0]->entityLocation = $link;
-$body->content->contentEntities[0]->thumbnails[0]->resolvedUrl = "THUMBNAIL_URL_TO_POST";
-$body->content->title = 'YOUR_POST_TITLE';
+//$body->content->contentEntities[0]->thumbnails[0] = new \stdClass();
+//$body->content->contentEntities[0]->entityLocation = $link;
+//$body->content->contentEntities[0]->thumbnails[0]->resolvedUrl = "";
+$body->content->title = '';
 $body->owner = 'urn:li:person:'.$linkedin_id;
-$body->text->text = 'YOUR_POST_SHORT_SUMMARY';
+$body->text->text = 'YOUR_PsOST_SHORT_SUMMARY';
 $body_json = json_encode($body, true);
   
 try {
@@ -45,7 +45,7 @@ try {
         echo 'Error: '. $response->getLastBody()->errors[0]->message;
     }
   
-    echo 'Post is shared on LinkedIn successfully.';
+    echo 'linkedin post gönderildi';
 } catch(Exception $e) {
     echo $e->getMessage(). ' for link '. $link;
 }
