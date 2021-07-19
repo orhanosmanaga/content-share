@@ -3,16 +3,36 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Http\Request;
+use Validator;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use GuzzleHttp\Client;
+
 class Controller extends BaseController
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+   // use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-  public function gonder(){
+  public function gonder(Request $request ){
    
+    $kontrol= Validator::make($request->all(),array(
+
+
+    ));
+
+   /* if($kontrol->fails)
+    {
+
+        return redirect()->route('welcome');
+    }
+*/
+    //else
+
+    //{
+       // $Validator->errors()->toArray();
+        $isim=$request->input('posticerik');
+    //}
 
 
     $link = 'd';
@@ -27,7 +47,7 @@ $body->text = new \stdClass();
 //$body->content->contentEntities[0]->thumbnails[0]->resolvedUrl = "";
 $body->content->title = '';
 $body->owner = 'urn:li:person:'.$linkedin_id;
-$body->text->text = 'YOUR_PsOST_SHORT_SUMMARY';
+$body->text->text = $isim;
 $body_json = json_encode($body, true);
   
 try {

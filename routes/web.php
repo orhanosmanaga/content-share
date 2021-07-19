@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/postolustur', function () {
+    return view('linkedingonder');
 });
-Route::get('/gonder', 'App\Http\Controllers\Controller@gonder');
+
+Route::post('/postgonder', 'App\Http\Controllers\Controller@gonder');
