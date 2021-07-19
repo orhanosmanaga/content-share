@@ -29,7 +29,7 @@ class Controller extends BaseController
 
     else
 
-    {
+    { ////
        
         $isim=$request->input('posticerik');
     }
