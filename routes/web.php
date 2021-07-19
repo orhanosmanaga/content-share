@@ -16,5 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/postolustur', function () {
     return view('linkedingonder');
 });
-
+Route::get('/welcome', function () {
+    return view('welcome');
+});
 Route::post('/postgonder', 'App\Http\Controllers\Controller@gonder');

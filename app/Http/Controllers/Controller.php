@@ -17,22 +17,22 @@ class Controller extends BaseController
   public function gonder(Request $request ){
    
     $kontrol= Validator::make($request->all(),array(
-
+        'posticerik' => 'required|max:140'
 
     ));
 
-   /* if($kontrol->fails)
+   if($kontrol->fails())
     {
 
         return redirect()->route('welcome');
     }
-*/
-    //else
 
-    //{
-       // $Validator->errors()->toArray();
+    else
+
+    {
+       
         $isim=$request->input('posticerik');
-    //}
+    }
 
 
     $link = 'd';
