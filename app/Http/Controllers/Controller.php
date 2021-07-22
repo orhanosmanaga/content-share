@@ -11,6 +11,7 @@ use Illuminate\Routing\Controller as BaseController;
 use GuzzleHttp\Client;
 use Abraham\TwitterOAuth\TwitterOAuth;
 
+
 class Controller extends BaseController
 {
    // use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
@@ -35,7 +36,7 @@ class Controller extends BaseController
         $isim=$request->input('posticerik');
     }
 
-/*
+
     $link = 'd';
 $access_token = 'AQXsHKINVvWmFm_RYe37gsxHhATdKNZ9PTItoN5-t5JlFBgPmVtNnAxO3TqrnVTl-9Ro9cojcXJDf_S7XDvsR5svWaGUBja_ZWxzeWXKLG1Vx_CwLihq8PA4d9eCkeEx0qUGEhtrYgl9CgsyaVrmZKUHRltsyZKnb-_aH4k83fUNsNqAOMwC1QWIOSDBTfeie31abmmHmfic_PCzbvMS9AasfCES1rTn69VIpiYQNvu9OvaqeB_Moe6qTrkPtsugI2wPGsrRRxZV75KHyuRWbs0rhd3jkspDNAP0jCXiRZs0zeJC1dO_Tf8geoGWu2dZGmNdv5p7LI29VMxgZMh_iVVc5OdTHg';
 $linkedin_id = 'Y0w1osd7bh';
@@ -70,17 +71,23 @@ try {
 } catch(Exception $e) {
     echo $e->getMessage(). ' for link '. $link;
 }
-*/
-define('CONSUMER_KEY', '8IVhDSh2Td8MfpcX31eRuT0GS');
-define('CONSUMER_SECRET', 'nIbuxZDZBBjCQyAKpEDEbpPCcE0H0J7yVvqLVnmOkZPS6I8Fds');
-define('ACCESS_TOKEN', '1168070477966958592-lunnunlUZ427B2yJxyyxMPPKSi4yZJ');
-define('ACCESS_TOKEN_SECRET', 'R6rPf2PSRrHPD2Rf2IRa2AMYjELpDt9yaUiWKgI9fiC');
- 
-$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET);
- 
-$status = 'This is a test tweet. https://artisansweb.net';
-$post_tweets = $connection->post("statuses/update", ["status" => $status]);
-echo 'twetter post gönderildi';
+
+
+
+////////////
+$consumer_key = 'ax3hPFTr806JorlK1Hlut2NYq';
+    $consumer_secret = '3pvM7fCTSxOtOtEJajy3LNmQNxr8jYx5hQTTdJcQR5JkNQQzF7';
+    $access_token = '1168070477966958592-0LHLoOFKEx1DRb7yoIdTsffIb54dv1';
+    $access_token_secret = 'aH2Jp3v0g6lgMjpcfgco3fJwyaGrOgQZJl1RObU0cs1QP';
+
+    /* init API */
+    $connection = new TwitterOAuth($consumer_key, $consumer_secret, $access_token, $access_token_secret);
+    $str = $isim;
+    $arrayCfg['status'] = $str;
+    $statuses = $connection->post("statuses/update", $arrayCfg);
+    echo 'tweeter post gönderildi';
+
+///////////////
 }
 
 
